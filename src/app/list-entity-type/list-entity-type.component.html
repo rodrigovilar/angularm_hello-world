@@ -1,0 +1,27 @@
+<div *ngIf="entityType">
+  <h1>{{ entityType.plural | titleCase }}</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let propertyType of entityType.propertyTypes" id="{{propertyType.name}}Header">
+          {{ propertyType.name | titleCase }}
+        </th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let entity of entities">
+        <td *ngFor="let property of entity.mountProperties()">
+          {{ property.value }}
+        </td>
+        <td><a href="#" (click)="show(entity.key)">Show</a></td>
+        <td><a href="#" (click)="edit(entity.key)">Edit</a></td>
+        <td><a href="#" (click)="destroy(entity.key)">Destroy</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <a [routerLink]="['new']">New {{ entityType.singular | titleCase }}</a>
+</div>

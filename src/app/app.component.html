@@ -1,3 +1,5 @@
-<h1>
-  {{title}}
-</h1>
+<ul>
+  <li *ngFor="let entityType of entityTypes">{{entityType.singular}}</li>
+</ul>
+
+<router-outlet></router-outlet>
