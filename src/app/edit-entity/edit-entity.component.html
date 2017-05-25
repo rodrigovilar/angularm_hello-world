@@ -5,7 +5,11 @@
       <label for="{{property.propertyType.entityType.singular}}_{{property.propertyType.name}}">
         {{property.propertyType.name | titleCase}}
       </label>
-      <input type="text"
+      <input *ngIf="propertyType.type == 'string'" type="text"
+        id="{{property.propertyType.entityType.singular}}_{{property.propertyType.name}}"
+        placeholder="{{property.propertyType.name | titleCase}}"
+        [formControl]="myForm.controls[property.propertyType.name]">
+      <input *ngIf="propertyType.type == 'number'" type="text"
         id="{{property.propertyType.entityType.singular}}_{{property.propertyType.name}}"
         placeholder="{{property.propertyType.name | titleCase}}"
         [formControl]="myForm.controls[property.propertyType.name]">

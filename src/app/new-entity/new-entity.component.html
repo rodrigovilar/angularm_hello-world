@@ -10,7 +10,14 @@
         {{propertyType.name | titleCase}}
       </label>
 
-      <input type="text" ngModel
+      <input *ngIf="propertyType.type == 'string'"
+        type="text" ngModel
+        id="{{propertyType.entityType.singular}}_{{propertyType.name}}"
+        name="{{propertyType.name}}"
+        placeholder="{{propertyType.name | titleCase}}">
+
+      <input *ngIf="propertyType.type == 'number'"
+        type="number" ngModel
         id="{{propertyType.entityType.singular}}_{{propertyType.name}}"
         name="{{propertyType.name}}"
         placeholder="{{propertyType.name | titleCase}}">
