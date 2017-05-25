@@ -4,18 +4,18 @@ export let describeDomain = (angularm: AngularmService) => {
   angularm.setupDomain(
     memoryDAO(
         entityType('student', 'students', {id: 'code'})
-            .propertyType('code', 'number')
+            .propertyType('code', 'string')
             .propertyType('name', 'string')
             .propertyType('age', 'number')
     ),
     memoryDAO(
       entityType('client', 'clients', {id: 'id'})
-        .propertyType('id', 'number')
+        .propertyType('id', 'string')
         .propertyType('name', 'string')
     ),
     memoryDAO(
       entityType('product', 'products', {id: 'id'})
-        .propertyType('id', 'number')
+        .propertyType('id', 'string')
         .propertyType('description', 'string')
     ),
     memoryDAO(

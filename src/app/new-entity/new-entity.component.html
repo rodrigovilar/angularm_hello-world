@@ -1,0 +1,27 @@
+<div *ngIf="entityType">
+
+  <h1>New {{ entityType.singular | titleCase }}</h1>
+
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+
+    <div *ngFor="let propertyType of entityType.propertyTypes">
+
+      <label for="{{propertyType.entityType.singular}}_{{propertyType.name}}">
+        {{propertyType.name | titleCase}}
+      </label>
+
+      <input type="text" ngModel
+        id="{{propertyType.entityType.singular}}_{{propertyType.name}}"
+        name="{{propertyType.name}}"
+        placeholder="{{propertyType.name | titleCase}}">
+
+      <br>
+    </div>
+
+    <input type="submit" value="Create {{ entityType.singular | titleCase }}">
+
+  </form>
+
+  <a routerLink="/{{entityType.plural}}">Back</a>
+
+</div>

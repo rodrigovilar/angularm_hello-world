@@ -1,0 +1,18 @@
+<div *ngIf="entity">
+  <h1>Editing {{ entity.entityType.singular | titleCase }}</h1>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let property of entity.mountProperties()">
+      <label for="{{property.propertyType.entityType.singular}}_{{property.propertyType.name}}">
+        {{property.propertyType.name | titleCase}}
+      </label>
+      <input type="text"
+        id="{{property.propertyType.entityType.singular}}_{{property.propertyType.name}}"
+        placeholder="{{property.propertyType.name | titleCase}}"
+        [formControl]="myForm.controls[property.propertyType.name]">
+      <br>
+    </div>
+    <input type="submit" value="Update {{ entity.entityType.singular | titleCase }}">
+  </form>
+  <a href="#" (click)="show()">Show</a>
+  <a href="#" (click)="back()">Back</a>
+</div>

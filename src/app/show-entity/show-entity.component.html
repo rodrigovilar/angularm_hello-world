@@ -1,0 +1,9 @@
+<div *ngIf="entity">
+
+  <p *ngFor="let property of entity.mountProperties()">
+    <strong>{{property.propertyType.name | titleCase}}:</strong> {{property.value}}
+  </p>
+
+  <a href="#" (click)="edit()">Edit</a>
+  <a href="#" (click)="back()">Back</a>
+</div>
