@@ -5,11 +5,13 @@
       <label for="{{property.propertyType.entityType.singular}}_{{property.propertyType.name}}">
         {{property.propertyType.name | titleCase}}
       </label>
-      <input *ngIf="propertyType.type == 'string'" type="text"
+
+      <input *ngIf="property.propertyType.type == 'string'" type="text"
         id="{{property.propertyType.entityType.singular}}_{{property.propertyType.name}}"
         placeholder="{{property.propertyType.name | titleCase}}"
         [formControl]="myForm.controls[property.propertyType.name]">
-      <input *ngIf="propertyType.type == 'number'" type="text"
+
+      <input *ngIf="property.propertyType.type == 'number'" type="number"
         id="{{property.propertyType.entityType.singular}}_{{property.propertyType.name}}"
         placeholder="{{property.propertyType.name | titleCase}}"
         [formControl]="myForm.controls[property.propertyType.name]">
