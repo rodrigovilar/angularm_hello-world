@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 import { AngularmService, EntityTypesComponent } from 'angularm';
 import { describeDomain } from './entities';
+import { defineRules } from './rules';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,8 @@ export class AppComponent extends EntityTypesComponent {
     super();
     describeDomain(angularm);
     this.entityTypes = angularm.listEntityTypes();
+
+    defineRules(angularm);
 
     angularm.create('book', {name: 'Refactoring', author: 'Fowler'});
     angularm.create('book', {name: 'Patterns', author: 'GoF'});

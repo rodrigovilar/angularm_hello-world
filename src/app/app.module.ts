@@ -11,6 +11,7 @@ import { ListEntityTypeComponent } from './list-entity-type/list-entity-type.com
 import { NewEntityComponent } from './new-entity/new-entity.component';
 import { ShowEntityComponent } from './show-entity/show-entity.component';
 import { EditEntityComponent } from './edit-entity/edit-entity.component';
+import { EditFormLineComponent } from "app/edit-entity/edit-form-line";
 
 export const routes: Routes = [
   { path: ':entitytypename', component: ListEntityTypeComponent },
@@ -25,7 +26,8 @@ export const routes: Routes = [
     ListEntityTypeComponent,
     NewEntityComponent,
     ShowEntityComponent,
-    EditEntityComponent
+    EditEntityComponent,
+    EditFormLineComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +38,9 @@ export const routes: Routes = [
     AngularmModule
   ],
   providers: [],
+  entryComponents: [
+    EditFormLineComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
